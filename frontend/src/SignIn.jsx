@@ -1,8 +1,17 @@
 import NavBar from "./NavBar"
 const SignIn = () => {
+    // const [showPassword, setShowPassword] = useState(false);
+    //     const [showConfirmPassword, setShowconfirmPassword] = useState(false);
+    
+    //     const handlePassword = () => {
+    //         setShowPassword((Password) => !Password)
+    //     }
+    //     const handleConfirmPassword = () => {
+    //         setShowconfirmPassword((ConfirmPassword) => !ConfirmPassword)
+    //     }
     return (
         <div><NavBar />
-            <div className="flex flex-col items-center mt-10 gap-6  ` ">
+            <div className="flex flex-col items-center mt-10 gap-6">
                 <div className="border-black  bg-gray-200 border-2 w-1/3 items-center  rounded-2xl pb-4 shadow-2xl">
                     <h1 className="font-bold text-3xl  text-center">Sign In</h1>
                     <p className="text-semibold text-center text-xl text-gray-800 ">Access your Account</p>
