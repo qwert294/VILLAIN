@@ -1,21 +1,17 @@
- import SignUp from "./SignUp"
- import NavBar2 from "./NavBar2"
- import SignIn from "./SignIn"
- import NavBar from "./NavBar"
+import SignUp from "./SignUp"
+import SignIn from "./SignIn"
+import NavBar from "./NavBar"
 import Home from "./Home"
+import { Routes,Route} from 'react-router-dom'
 
 function App() {
 
   return (
-    <div className="">
-      {/* <NavBar2/>
-      <SignUp/>
-      
-      <SignIn/> */}
-      <NavBar2/>
-      <Home/>
-
-    </div>
+    <Routes>
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/" element={<Home />} />
+    </Routes>
   )
 }
 
