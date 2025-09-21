@@ -20,14 +20,10 @@ const SignUp = () => {
     })
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
-    const [agreed,setAgreed]=useState(false);
+    const [agreed, setAgreed] = useState(false);
 
-    const handlePassword = () => {
-        setShowPassword((prev) => !prev)
-    }
-    const handleConfirmPassword = () => {
-        setShowconfirmPassword((prev) => !prev)
-    }
+    const handlePassword = () => setShowPassword((prev) => !prev)
+    const handleConfirmPassword = () => setShowconfirmPassword((prev) => !prev)
     const handleChange = (e) => {
         setError('')
         setSuccess('')
@@ -35,54 +31,58 @@ const SignUp = () => {
             ...formData,
             [e.target.name]: e.target.value
         }))
-        setErrors((errors)=>({
+        setErrors((errors) => ({
             ...errors,
-            [e.target.name]:""
+            [e.target.name]: ""
         }))
     }
-   
-    }
+    const handleCheckbox = (e) => setAgreed(e.target.checked)
 
     const handleSubmit = (event) => {
         event.preventDefault();
         let newErrors = {};
         if (!agreed) {
-    setError("You must agree to the Terms of service and Privacy policy");
-    setSuccess('');
-    return;
-}
-        if (!formData.fullName) {
-            newErrors.fullName = "please enter full name"
+            setError("You must agree to the Terms of service and Privacy policy");
+            setSuccess('');
+            return;
         }
+        if (!formData.fullName) {
+            newErrors.fullName = "Please enter your full name";
+        }
+        // Basic email format check
         if (!formData.email) {
-            newErrors.email = "please enter email"
+            newErrors.email = "Please enter your email";
+        } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) {
+            newErrors.email = "Please enter a valid email address";
         }
         if (!formData.Password) {
-            newErrors.Password = "please enter password"
+            newErrors.Password = "Please enter your password";
         } else if (formData.Password.length < 8) {
             newErrors.Password = "Password must be at least 8 characters";
         }
         if (!formData.confirmPassword) {
-            newErrors.confirmPassword = "please confirm password"
+            newErrors.confirmPassword = "Please confirm your password";
         } else if (formData.Password !== formData.confirmPassword) {
-            newErrors.confirmPassword = "password does not match"
+            newErrors.confirmPassword = "Passwords do not match";
         }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             setSuccess('');
+            setError('');
         } else {
             setErrors({});
-            setSuccess("account created succesfuly")
+            setError('');
+            setSuccess("Account created successfully");
             setformData({
                 fullName: "",
                 email: "",
                 Password: "",
                 confirmPassword: ""
             })
+            setAgreed(false);
         }
     }
-    
 
     useEffect(() => {
         if (success) {
@@ -97,11 +97,11 @@ const SignUp = () => {
         <div>
             <NavBar />
             <div className="flex flex-col items-center mt-10 gap-6">
-                <h1 className=" text-sm sm:text-4xl font-bold text-blue-500">JOIN BLOG-VERSE</h1>
-                <p className="text-gray-700 text-center text-sm sm:text-xl   font-semibold">
+                <h1 className="text-sm sm:text-4xl font-bold text-blue-500">JOIN BLOG-VERSE</h1>
+                <p className="text-gray-700 text-center text-sm sm:text-xl font-semibold">
                     create your account and start Blogging journey today
                 </p>
-                <form onSubmit={handleSubmit} className="flex flex-col border-2  items-center md:w-1/2 lg:w-1/3 xl:w-[45%] sm:w-[60%]  w-[90%] rounded-2xl shadow-2xl border-white gap-2">
+                <form onSubmit={handleSubmit} className="flex flex-col border-2 items-center md:w-1/2 lg:w-1/3 xl:w-[45%] sm:w-[60%] w-[90%] rounded-2xl shadow-2xl border-white gap-2">
                     <div className="w-[90%] items-center">
                         <p className="text-md text-gray-600 font-semibold pb-2">FullName</p>
                         <input value={formData.fullName} onChange={handleChange} name="fullName" type="text" placeholder="Enter your FullName" className="border-1 rounded-xl pl-2 w-full py-1 focus:outline-none focus:border-purple-400" />
@@ -129,7 +129,7 @@ const SignUp = () => {
                     <div className="w-[90%] items-center pt-5">
                         <p className="text-md text-gray-600 font-semibold pb-2">Confirm Password</p>
                         <div className="relative">
-                            <input value={formData.confirmPassword} onChange={handleChange} name="confirmPassword" type={showConfirmPassword ? "text" : "password"} placeholder="confirm your password" className="border-1 pl-8 rounded-xl pl-2 w-full py-1 focus:outline-none focus:border-purple-400" />
+                            <input value={formData.confirmPassword} onChange={handleChange} name="confirmPassword" type={showConfirmPassword ? "text" : "password"} placeholder="Confirm your password" className="border-1 pl-8 rounded-xl pl-2 w-full py-1 focus:outline-none focus:border-purple-400" />
                             <span onClick={handleConfirmPassword} className="absolute top-1 right-3 p-1 cursor-pointer">
                                 {showConfirmPassword ? <EyeOff /> : <Eye />}
                             </span>
@@ -137,8 +137,16 @@ const SignUp = () => {
                             {errors.confirmPassword && <p className="text-red-600">{errors.confirmPassword}</p>}
                         </div>
                     </div>
-                    <div className="flex gap-2 mt-5 w-[90%] border-1 rounded-xl border-red-400 px-2 py-2  items-center justify-center">
-                        <div className=""><input  type="checkbox" checked={agreed} onChange={e=>ev.target.checked} name="" id="" className=" h-5 w-5  sm:w-5 sm:h-5  " /></div>
+                    <div className="flex gap-2 mt-5 w-[90%] border-1 rounded-xl border-red-400 px-2 py-2 items-center justify-center">
+                        <div>
+                            <input
+                                type="checkbox"
+                                checked={agreed}
+                                onChange={handleCheckbox}
+                                className="h-5 w-5 sm:w-5 sm:h-5"
+                                aria-label="Agree to Terms of Service and Privacy Policy"
+                            />
+                        </div>
                         <p className="text-sm lg:text-xl">I agree to the Terms of service and Privacy policy</p>
                     </div>
                     {error && <p className="text-red-600">{error}</p>}
@@ -155,6 +163,6 @@ const SignUp = () => {
             </div>
         </div>
     )
-
+}
 
 export default SignUp
