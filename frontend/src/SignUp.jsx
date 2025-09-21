@@ -89,11 +89,11 @@ const SignUp = () => {
         <div>
             <NavBar />
             <div className="flex flex-col items-center mt-10 gap-6">
-                <h1 className="text-5xl text-bold text-blue-500">JOIN BLOG-VERSE</h1>
-                <p className="text-gray-700 text-center text-semibold text-xl">
-                    create your account and <br />start Blogging journey today
+                <h1 className=" text-sm sm:text-4xl font-bold text-blue-500">JOIN BLOG-VERSE</h1>
+                <p className="text-gray-700 text-center text-sm sm:text-xl   font-semibold">
+                    create your account and start Blogging journey today
                 </p>
-                <form onSubmit={handleSubmit} className="flex flex-col border-2 py-5 items-center w-1/3 rounded-2xl shadow-2xl border-white gap-2">
+                <form onSubmit={handleSubmit} className="flex flex-col border-2  items-center md:w-1/2 lg:w-1/3 xl:w-[45%] sm:w-[60%]  w-[90%] rounded-2xl shadow-2xl border-white gap-2">
                     <div className="w-[90%] items-center">
                         <p className="text-md text-gray-600 font-semibold pb-2">FullName</p>
                         <input value={formData.fullName} onChange={handleChange} name="fullName" type="text" placeholder="Enter your FullName" className="border-1 rounded-xl pl-2 w-full py-1 focus:outline-none focus:border-purple-400" />
@@ -129,9 +129,9 @@ const SignUp = () => {
                             {errors.confirmPassword && <p className="text-red-600">{errors.confirmPassword}</p>}
                         </div>
                     </div>
-                    <div className="flex gap-2 mt-5 w-[90%] border-1 rounded-xl border-red-400 px-4 py-5 items-center justify-center">
-                        <input type="checkbox" name="" id="" className="h-5 w-5" />
-                        <p>I agree to the Terms of service and Privacy policy</p>
+                    <div className="flex gap-2 mt-5 w-[90%] border-1 rounded-xl border-red-400 px-2 py-2  items-center justify-center">
+                        <div className=""><input type="checkbox" name="" id="" className=" h-5 w-5  sm:w-5 sm:h-5  " /></div>
+                        <p className="text-sm lg:text-xl">I agree to the Terms of service and Privacy policy</p>
                     </div>
                     {error && <p className="text-red-600">{error}</p>}
                     {success && <p className="text-green-400">{success}</p>}
