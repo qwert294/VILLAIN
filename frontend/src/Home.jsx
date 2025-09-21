@@ -1,105 +1,3 @@
-// import NavBar from "./NavBar"
-
-// const Home = () => {
-//     const posts = [
-
-//         {
-//             id: 1,
-//             title: "Getting Started with React and Tailwind CSS",
-//             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
-//             time: "5 min read",
-//             profile: "suri.jppg",
-//             pic: "suri.jpg",
-//             author: "sai"
-//         }
-//         ,
-//         {
-//             id: 2,
-//             title: "Getting Started with React and Tailwind CSS",
-//             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
-//             time: "5 min read",
-//             profile: "vite.svg",
-//             pic: "suri.jpg",
-//             author: "sai"
-//         },
-//         {
-//             id: 3,
-//             title: "Getting Started with React and Tailwind CSS",
-//             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
-//             time: "5 min read",
-//             profile: "vite.svg",
-//             pic: "suri.jpg",
-//             author: "sai"
-//         }, {
-//             id: 4,
-//             title: "Getting Started with React and Tailwind CSS",
-//             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
-//             time: "5 min read",
-//             profile: "vite.svg",
-//             pic: "suri.jpg",
-//             author: "sai"
-//         },
-//         {
-//             id: 5,
-//             title: "Getting Started with React and Tailwind CSS",
-//             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
-//             time: "5 min read",
-//             profile: "vite.svg",
-//             pic: "suri.jpg",
-//             author: "sai"
-//         },
-//         {
-//             id: 6,
-//             title: "Getting Started with React and Tailwind CSS",
-//             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
-//             time: "5 min read",
-//             profile: "vite.svg",
-//             pic: "suri.jpg",
-//             author: "sai"
-//         }
-//     ]
-//     return (
-//         <div><NavBar/>
-//         <div className=" items-center  ">
-//             <div className="items-center m-[40px]">
-//                 <h1 className="font-bold text-4xl text-black text-center">Welcome To Blog-Verse</h1>
-//                 <p className="text-center text-gray-900 max-w-xl mx-auto">Discover amazing stories, insights, and ideas from our community of writers.<span><button className="text-blue-500-400 underline text-blue-600 decoration-blue-500 ">Sign in</button></span> to create your own posts and save your favorites.</p>
-//                 <div className="flex flex-col grid grid-cols-3 ">
-//                     {
-//                         posts.map((post) => (
-//                             <div key={post.id} className="flex flex-row  p-[20px] w-[400px] h-[500px] m-[10px] items-center">
-//                                     <div className="border-2 border-green-700  rounded-2xl">{<img src="suri.jpg" alt="noohti " className="w-[400px] h-[200px] rounded-2xl" />}
-//                                     <div className="pl-4 pb-[5px]">{post.title}</div>
-//                                  <div className="flex flex-row">   {<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="noohti " className=" rounded-full w-[50px] h-[50px] ml-4" />}
-//                                   <div className="flex flex-col m-0">  <div className="pl-4 pb-[5px]">{post.author}</div>
-//                                     <div className="pl-4 pb-[5px]">{post.time}</div> </div></div>
-//                                     <div className="pl-4 pb-[5px]">{post.description}</div>
-                                    
-//                                     <div className="pl-4 pb-[5px]">{post.profile}</div>
-                                    
-                                    
-//                                 </div>
-//                             </div>
-//                         ))
-//                     }
-//                 </div>
-//             </div>
-//         </div>
-//         </div>
-//     )
-
-// }
-
-
-// export default Home;
-// {/*     
-//             </div>
-//             <div className="border-1 border-black w-1/4 ">
-//                 <img src="suri.jpg" alt="no" className="w-[100%] h-[200px]" />
-//                 <div className="">
-//                     <img src="suri.jpg" alt="" className="w-[10px] h-[100px]" />
-//                 </div>
-//              */}
 
 
 import NavBar from "./NavBar";
@@ -111,7 +9,7 @@ const Home = () => {
             description: "Learn how to build beautiful and responsive user interfaces using React and Tailwind CSS. This comprehensive guide covers everything from set",
             time: "5 min read",
             profile: "vite.svg",
-            pic: "suri.jpg",
+            pic: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop",
             author: "sai"
 
 
@@ -122,7 +20,7 @@ const Home = () => {
             description: "Exploring the latest trends and technologies that are shaping the future of web development. From AI integration to new framewor",
             time: "5 min read",
             profile: "vite.svg",
-            pic: "./suri.jpg",
+            pic: "./https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop",
             author: "surya"
 
         },
@@ -132,7 +30,7 @@ const Home = () => {
             description: "In our hyper-connected world, finding balance and mindfulness has become more important than ever. Discover practical strategies for maintaining mental well-being while staying productive6",
             time: "5 min read",
             profile: "vite.svg",
-            pic: "suri.jpg",
+            pic: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop",
             author: "Pavan"
 
         },
@@ -142,7 +40,7 @@ const Home = () => {
             description: "Learn the best practices for building robust and scalable Node.js applications. This guide covers architecture patterns, performance optimizatio",
             time: "5 min read",
             profile: "vite.svg",
-            pic: "suri.jpg",
+            pic: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop",
             author: "Mohith"
         }
         ,
@@ -152,7 +50,7 @@ const Home = () => {
             description: "Creating consistent and scalable design systems for modern applications. Learn how to build component libraries, establish",
             time: "5 min read",
             profile: "vite.svg",
-            pic: "suri.jpg",
+            pic: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=200&fit=crop",
             author: "Thohid"
 
         }
@@ -163,7 +61,7 @@ const Home = () => {
             description: "Creating consistent and scalable design systems for modern applications. Learn how to build component libraries, establish",
             time: "5 min read",
             profile: "vite.svg",
-            pic: "suri.jpg",
+            pic: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=200&fit=crop",
             author: "Sampi"
         }
     ]
