@@ -20,6 +20,7 @@ const SignUp = () => {
     })
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const [agreed,setAgreed]=useState(false);
 
     const handlePassword = () => {
         setShowPassword((prev) => !prev)
@@ -39,10 +40,17 @@ const SignUp = () => {
             [e.target.name]:""
         }))
     }
+   
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         let newErrors = {};
+        if (!agreed) {
+    setError("You must agree to the Terms of service and Privacy policy");
+    setSuccess('');
+    return;
+}
         if (!formData.fullName) {
             newErrors.fullName = "please enter full name"
         }
@@ -55,7 +63,7 @@ const SignUp = () => {
             newErrors.Password = "Password must be at least 8 characters";
         }
         if (!formData.confirmPassword) {
-            newErrors.confirmPassword = "please enter password"
+            newErrors.confirmPassword = "please confirm password"
         } else if (formData.Password !== formData.confirmPassword) {
             newErrors.confirmPassword = "password does not match"
         }
@@ -130,7 +138,7 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className="flex gap-2 mt-5 w-[90%] border-1 rounded-xl border-red-400 px-2 py-2  items-center justify-center">
-                        <div className=""><input type="checkbox" name="" id="" className=" h-5 w-5  sm:w-5 sm:h-5  " /></div>
+                        <div className=""><input  type="checkbox" checked={agreed} onChange={e=>ev.target.checked} name="" id="" className=" h-5 w-5  sm:w-5 sm:h-5  " /></div>
                         <p className="text-sm lg:text-xl">I agree to the Terms of service and Privacy policy</p>
                     </div>
                     {error && <p className="text-red-600">{error}</p>}
@@ -147,6 +155,6 @@ const SignUp = () => {
             </div>
         </div>
     )
-}
+
 
 export default SignUp
